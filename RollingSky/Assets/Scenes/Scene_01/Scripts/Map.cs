@@ -12,34 +12,34 @@ public class Map : MonoBehaviour
     public Transform orangeTile;
     public Transform redTile;
     public Transform jumpTile;
-    public Vector2 mapSize;
+    //public Vector2 mapSize;
     public List<Transform> Tiles = new List<Transform>();
 
     public TextAsset Maptxt;
 
     void createTile(char tile, float posx, float posy) {
       Vector3 pos = new Vector3((posx-2.0f)*-1,-0.1f,-posy);
-      if(tile == '0') {
+      if(tile == '1') {
         Transform newTile = Instantiate(blueTile,pos,Quaternion.Euler(Vector3.left*90)) as Transform;
         Tiles.Add(newTile);
       }
-      else if(tile == '1') {
+      else if(tile == '2') {
         Transform newTile = Instantiate(greenTile,pos,Quaternion.Euler(Vector3.left*90)) as Transform;
         Tiles.Add(newTile);
       }
-      else if(tile == '2') {
+      else if(tile == '3') {
         Transform newTile = Instantiate(yellowTile,pos,Quaternion.Euler(Vector3.left*90)) as Transform;
         Tiles.Add(newTile);
       }
-      else if(tile == '3') {
+      else if(tile == '4') {
         Transform newTile = Instantiate(orangeTile,pos,Quaternion.Euler(Vector3.left*90)) as Transform;
         Tiles.Add(newTile);
       }
-      else if(tile == '4') {
+      else if(tile == '5') {
         Transform newTile = Instantiate(redTile,pos,Quaternion.Euler(Vector3.left*90)) as Transform;
         Tiles.Add(newTile);
       }
-      else if(tile == '5') {
+      else if(tile == '6') {
         Transform newTile = Instantiate(jumpTile,pos,Quaternion.Euler(Vector3.left*90)) as Transform;
       }
     }
@@ -48,9 +48,10 @@ public class Map : MonoBehaviour
     void Start()
     {
           string[] lines = Maptxt.text.Split('\n');
-          for (float j = 0; j < lines.Length; ++j) {
-            for (float i = 0; i < 5; ++i) {
-              createTile(lines[(int)j][(int)i],i,j);
+          Debug.Log(lines.Length);
+          for (int j = 0; j < lines.Length-1; ++j) {
+            for (int i = 0; i < 5; ++i) {
+              createTile(lines[j][i],(float)i,(float)j);  //lines[j][i]
             }
           }
 
