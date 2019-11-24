@@ -15,23 +15,23 @@ public class BallMovement : MonoBehaviour
         if (transform.position.y > 0.373f) transform.rotation = Quaternion.Euler(0, 90, 0);
         if (Input.GetMouseButton(0))
         {
-            Debug.Log("Pressed left click.");
+            //Debug.Log("Pressed left click.");
             float horizontalMovement = Input.GetAxis("Mouse X");
-            Debug.Log(horizontalMovement);
+            //Debug.Log(horizontalMovement);
             if (horizontalMovement > 0) 
             {
-                transform.position += (new Vector3(-5f, 0, 0)  * Time.deltaTime);
+                transform.position += (new Vector3(-5f, 0f, 0f)  * Time.deltaTime);
             }
             else
             {
-                transform.position += (new Vector3(5f, 0, 0)  * Time.deltaTime);
+                transform.position += (new Vector3(5f, 0f, 0f)  * Time.deltaTime);
             }
         }
         if(Input.GetKey("d")) {
-            transform.position += (new Vector3(-5f, 0, 0)  * Time.deltaTime);
+            transform.position += (new Vector3(-5f, 0f, 0f)  * Time.deltaTime);
         }
         else if(Input.GetKey("a")) {
-            transform.position += (new Vector3(5f, 0, 0)  * Time.deltaTime);
+            transform.position += (new Vector3(5f, 0f, 0f)  * Time.deltaTime);
         }
     }
 }

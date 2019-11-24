@@ -41,6 +41,7 @@ public class Map : MonoBehaviour
       }
       else if(tile == '6') {
         Transform newTile = Instantiate(jumpTile,pos,Quaternion.Euler(Vector3.left*90)) as Transform;
+        newTile.gameObject.AddComponent<CollisionTileJump>();
       }
     }
 
