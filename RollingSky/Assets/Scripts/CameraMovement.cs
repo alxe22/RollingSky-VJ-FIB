@@ -9,7 +9,5 @@ public class CameraMovement : MonoBehaviour {
 
 	public Transform transformPlayer;
 	void Update () {
-		//because the script is inside the camera, the transform.position refers to the transfrom of the camera
-		transform.position = transform.position /*+ transformPlayer.position*/; //camera transfrom equals the position of the object
-	}
-}
+		transform.position = transformPlayer.position + new Vector3(0, 2.658f, 2.963f);
+	}}
