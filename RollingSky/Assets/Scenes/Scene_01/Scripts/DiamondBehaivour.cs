@@ -10,6 +10,7 @@ public class DiamondBehaivour : MonoBehaviour
     public float moveSpeed;
     
     public GameObject particleSystemContainer;
+    public GameObject defaultMat;
 
     private bool collisionParticlesActivated = false;
 
@@ -34,6 +35,7 @@ public class DiamondBehaivour : MonoBehaviour
         {
             if (!collisionParticlesActivated) {
                 ps.Play();
+                defaultMat.GetComponent<MeshRenderer>().enabled = false;
                 collisionParticlesActivated = true;
             }
             Debug.Log("entered");
