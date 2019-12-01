@@ -6,14 +6,38 @@ public class ObjectSpawner : MonoBehaviour
 {
     public GameObject diamond;
     public GameObject identityDisc;
+    public GameObject blueWall;
+    public GameObject greenWall;
+    public GameObject yellowWall;
+    public GameObject orangeWall;
+    public GameObject redWall;
+    public GameObject floatingCube;
     public TextAsset objectsPosition;
 
     void createTile(char tile, Vector3 pos) {
         if(tile == '1') {
-            GameObject objectInstance = Instantiate(diamond,pos,Quaternion.Euler(Vector3.left*90)) as GameObject;
+            GameObject objectInstance = Instantiate(diamond, pos, Quaternion.Euler(Vector3.left*90)) as GameObject;
         }
         else if(tile == '2') {
-            GameObject objectInstance = Instantiate(identityDisc,pos,identityDisc.transform.rotation) as GameObject;
+            GameObject objectInstance = Instantiate(identityDisc, pos, identityDisc.transform.rotation) as GameObject;
+        }
+        else if(tile == '3') {
+            GameObject objectInstance = Instantiate(blueWall, pos, blueWall.transform.rotation) as GameObject;
+        }
+        else if(tile == '4') {
+            GameObject objectInstance = Instantiate(greenWall, pos, greenWall.transform.rotation) as GameObject;
+        }
+        else if(tile == '5') {
+            GameObject objectInstance = Instantiate(yellowWall, pos, yellowWall.transform.rotation) as GameObject;
+        }
+        else if(tile == '6') {
+            GameObject objectInstance = Instantiate(orangeWall, pos, orangeWall.transform.rotation) as GameObject;
+        }
+        else if(tile == '7') {
+            GameObject objectInstance = Instantiate(redWall, pos, redWall.transform.rotation) as GameObject;
+        }
+        else if(tile == '8') {
+            GameObject objectInstance = Instantiate(floatingCube, pos, floatingCube.transform.rotation) as GameObject;
         }
     }
 

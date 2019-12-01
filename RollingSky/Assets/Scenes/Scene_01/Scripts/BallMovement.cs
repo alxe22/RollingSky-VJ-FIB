@@ -17,27 +17,22 @@ public class BallMovement : MonoBehaviour
     {
         transform.position += (offset  * Time.deltaTime);
         transform.Rotate(Vector3.left * 250 * Time.deltaTime);
-        Debug.Log(isJumping + " " + isFalling);
         if (isJumping || isFalling) {
             this.gameObject.GetComponent<Rigidbody>().useGravity = false;
             if (isJumping && !isFalling && transform.position.y < maxJumpHeight) {
                 transform.position = new Vector3(transform.position.x, transform.position.y + 0.15f, transform.position.z);
-                Debug.Log("transform.position.y < maxJumpHeight");
             }
             else if (isJumping && !isFalling && transform.position.y >= maxJumpHeight) {
                 isJumping = false;
                 isFalling = true;
-                Debug.Log("transform.position.y >= maxJumpHeight");
             }
             else if (!isJumping && isFalling && transform.position.y > 0.375f) {
                 transform.position = new Vector3(transform.position.x, transform.position.y - 0.15f, transform.position.z);
-                Debug.Log("transform.position.y > 0.375f");
             }
             else if (!isJumping && isFalling && transform.position.y <= 0.375f) {
                 isJumping = false;
                 isFalling = false;
                 transform.position = new Vector3(transform.position.x, 0.375f, transform.position.z);
-                Debug.Log("transform.position.y <= 0.375f");
             }
         }
         else this.gameObject.GetComponent<Rigidbody>().useGravity = true;
