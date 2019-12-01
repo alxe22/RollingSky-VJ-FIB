@@ -8,7 +8,6 @@ public class ObjectSpawner : MonoBehaviour
     public TextAsset objectsPosition;
 
     void createTile(char tile, Vector3 pos) {
-        Debug.Log("line readed : " + tile + " (" + pos.x + ' ' + pos.y + pos.z + ")");
         if(tile == '1') {
             GameObject objectInstance = Instantiate(diamond,pos,Quaternion.Euler(Vector3.left*90)) as GameObject;
         }
@@ -17,7 +16,6 @@ public class ObjectSpawner : MonoBehaviour
     void Start()
     {
      string[] lines = objectsPosition.text.Split('\n');
-        Debug.Log(lines.Length);
         for (int i = 0; i < lines.Length; ++i) {
             //createTile(lines[j][i],(float)i,(float)j);  //lines[j][i]
             string[] coord = lines[i].Split(' ');

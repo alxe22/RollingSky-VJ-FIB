@@ -247,8 +247,8 @@ TrailRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0
-        value: 0.08333206
+        time: 0.02072525
+        value: 0.38596725
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -257,7 +257,7 @@ TrailRenderer:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.62500393
-        value: 0.045440674
+        value: 0.13754272
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -269,9 +269,9 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.9150943, g: 0.8696237, b: 0.082013145, a: 1}
+      key0: {r: 0.91764706, g: 0.87058824, b: 0.09803922, a: 1}
       key1: {r: 1, g: 1, b: 1, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
+      key2: {r: 1, g: 1, b: 1, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
       key5: {r: 0, g: 0, b: 0, a: 0}
@@ -279,7 +279,7 @@ TrailRenderer:
       key7: {r: 0, g: 0, b: 0, a: 0}
       ctime0: 0
       ctime1: 65535
-      ctime2: 0
+      ctime2: 65535
       ctime3: 0
       ctime4: 0
       ctime5: 0
@@ -400,6 +400,11 @@ PrefabInstance:
     - target: {fileID: -2416733968201007103, guid: 6adb7572f96f6b7478a528b132581a6c,
         type: 3}
       propertyPath: m_DynamicOccludee
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -2416733968201007103, guid: 6adb7572f96f6b7478a528b132581a6c,
+        type: 3}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -5222,7 +5227,7 @@ MeshCollider:
   m_GameObject: {fileID: 455740424}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 14
@@ -10049,11 +10054,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: a1017440bcef6454cb973c04457ee725,
-        type: 3}
-      propertyPath: m_Name
-      value: lv01-floor-blue
-      objectReference: {fileID: 0}
     - target: {fileID: -5975033157549033438, guid: a1017440bcef6454cb973c04457ee725,
         type: 3}
       propertyPath: m_LocalRotation.x
@@ -10088,6 +10088,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: a1017440bcef6454cb973c04457ee725,
+        type: 3}
+      propertyPath: m_Name
+      value: lv01-floor-blue
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: a1017440bcef6454cb973c04457ee725,
         type: 3}
@@ -10158,11 +10163,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 61fc748c65d533341982c05e816eeeb6,
-        type: 3}
-      propertyPath: m_Name
-      value: Ball
-      objectReference: {fileID: 0}
     - target: {fileID: 2534866581884222612, guid: 61fc748c65d533341982c05e816eeeb6,
         type: 3}
       propertyPath: m_Name
@@ -10191,7 +10191,7 @@ PrefabInstance:
     - target: {fileID: -5975033157549033438, guid: 61fc748c65d533341982c05e816eeeb6,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.7071068
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -5975033157549033438, guid: 61fc748c65d533341982c05e816eeeb6,
         type: 3}
@@ -10201,12 +10201,12 @@ PrefabInstance:
     - target: {fileID: -5975033157549033438, guid: 61fc748c65d533341982c05e816eeeb6,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -5975033157549033438, guid: 61fc748c65d533341982c05e816eeeb6,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -5975033157549033438, guid: 61fc748c65d533341982c05e816eeeb6,
         type: 3}
@@ -10216,7 +10216,12 @@ PrefabInstance:
     - target: {fileID: -5975033157549033438, guid: 61fc748c65d533341982c05e816eeeb6,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2
+      value: -299
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 61fc748c65d533341982c05e816eeeb6,
+        type: 3}
+      propertyPath: m_Name
+      value: Ball
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 61fc748c65d533341982c05e816eeeb6,
         type: 3}
@@ -10439,11 +10444,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 866f76a7cd5b5944eb11e383ef31145e,
-        type: 3}
-      propertyPath: m_Name
-      value: lv01-floor-green
-      objectReference: {fileID: 0}
     - target: {fileID: -5975033157549033438, guid: 866f76a7cd5b5944eb11e383ef31145e,
         type: 3}
       propertyPath: m_LocalRotation.y
@@ -10483,6 +10483,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 866f76a7cd5b5944eb11e383ef31145e,
+        type: 3}
+      propertyPath: m_Name
+      value: lv01-floor-green
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 866f76a7cd5b5944eb11e383ef31145e,
         type: 3}
@@ -10663,7 +10668,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1241953548}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 0.9999993, z: 0.20000005}
@@ -10787,6 +10792,12 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 41706f01241a38448ac77c8c6dc3549d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6fc7b63f55e11d8408358cf3f358d2f1, type: 3}
+--- !u!1 &1475075931 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2534866581884222612, guid: 6adb7572f96f6b7478a528b132581a6c,
+    type: 3}
+  m_PrefabInstance: {fileID: 223988084}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1547527720 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2534866581884222612, guid: 08bbcb9e0e1f48b4e995d4830de21fb5,
@@ -10957,6 +10968,7 @@ MonoBehaviour:
   exit: 1
   moveSpeed: 0
   particleSystemContainer: {fileID: 455740424}
+  defaultMat: {fileID: 1475075931}
 --- !u!65 &1837832104
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10968,7 +10980,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 3, z: 1}
+  m_Size: {x: 1.5, y: 1.5, z: 1.5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1849081056
 PrefabInstance:
@@ -10977,7 +10989,7 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 63dce17794358a04f96536831dd5e802,
+    - target: {fileID: 2534866581884222612, guid: 63dce17794358a04f96536831dd5e802,
         type: 3}
       propertyPath: m_Name
       value: lv01-floor-arrow-jump
@@ -11016,6 +11028,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 63dce17794358a04f96536831dd5e802,
+        type: 3}
+      propertyPath: m_Name
+      value: lv01-floor-arrow-jump
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 63dce17794358a04f96536831dd5e802,
         type: 3}
@@ -11111,11 +11128,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 67589cf7d88622146833852d5ef87641,
-        type: 3}
-      propertyPath: m_Name
-      value: lv01-floor-red
-      objectReference: {fileID: 0}
     - target: {fileID: 2534866581884222612, guid: 67589cf7d88622146833852d5ef87641,
         type: 3}
       propertyPath: m_IsActive
@@ -11160,6 +11172,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 67589cf7d88622146833852d5ef87641,
+        type: 3}
+      propertyPath: m_Name
+      value: lv01-floor-red
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 67589cf7d88622146833852d5ef87641,
         type: 3}
