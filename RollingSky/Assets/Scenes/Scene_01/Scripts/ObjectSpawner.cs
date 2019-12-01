@@ -5,11 +5,15 @@ using UnityEngine;
 public class ObjectSpawner : MonoBehaviour
 {
     public GameObject diamond;
+    public GameObject identityDisc;
     public TextAsset objectsPosition;
 
     void createTile(char tile, Vector3 pos) {
         if(tile == '1') {
             GameObject objectInstance = Instantiate(diamond,pos,Quaternion.Euler(Vector3.left*90)) as GameObject;
+        }
+        else if(tile == '2') {
+            GameObject objectInstance = Instantiate(identityDisc,pos,identityDisc.transform.rotation) as GameObject;
         }
     }
 
