@@ -8,13 +8,13 @@ public class DiamondBehaivour : MonoBehaviour
     public bool stay = true;
     public bool exit = true;
     public float moveSpeed;
-    
+
     public GameObject particleSystemContainer;
     public GameObject defaultMat;
 
     private bool collisionParticlesActivated = false;
 
-    private float degreesPerSecond = 50.0f;
+    private float degreesPerSecond = 90.0f;
 
     ParticleSystem ps;
 

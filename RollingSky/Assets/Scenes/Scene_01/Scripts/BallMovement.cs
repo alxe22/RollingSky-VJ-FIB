@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class BallMovement : MonoBehaviour
 {
-    Vector3 offset = new Vector3(0.0f, 0.0f, -8.0f);
-    private float degreesPerSecond = 120.0f, maxJumpHeight = 4.6f;
+    Vector3 offset = new Vector3(0.0f, 0.0f, -10.0f);
+    public float degreesPerSecond = 120.0f, maxJumpHeight = 4.6f;
     private bool isJumping = false, isFalling = false;
 
     void Start()
@@ -16,7 +16,7 @@ public class BallMovement : MonoBehaviour
 	void Update ()
     {
         transform.position += (offset  * Time.deltaTime);
-        transform.Rotate(Vector3.left * 250 * Time.deltaTime);
+        transform.Rotate(Vector3.left * 500 * Time.deltaTime);
         if (isJumping || isFalling) {
             this.gameObject.GetComponent<Rigidbody>().useGravity = false;
             if (isJumping && !isFalling && transform.position.y < maxJumpHeight) {
