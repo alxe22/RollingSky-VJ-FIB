@@ -16,7 +16,7 @@ public class BallMovement : MonoBehaviour
 	void Update ()
     {
         transform.position += (offset  * Time.deltaTime);
-        transform.Rotate(Vector3.left * 500 * Time.deltaTime);
+        transform.Rotate(Vector3.left * 1000 * Time.deltaTime);
         if (isJumping || isFalling) {
             this.gameObject.GetComponent<Rigidbody>().useGravity = false;
             if (isJumping && !isFalling && transform.position.y < maxJumpHeight) {
@@ -40,15 +40,16 @@ public class BallMovement : MonoBehaviour
         //if (transform.position.y > 0.373f) transform.rotation = Quaternion.Euler(0, 90, 0);
 
         if (Input.GetMouseButton(0)){
-            //Debug.Log("Pressed left click.");
-            float horizontalMovement = Input.GetAxis("Mouse X");
-            //Debug.Log(horizontalMovement);
-            if (horizontalMovement > 0) {
-                transform.position += (new Vector3(-5f, 0f, 0f)  * Time.deltaTime);
-            }
-            else {
-                transform.position += (new Vector3(5f, 0f, 0f)  * Time.deltaTime);
-            }
+          Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+          RaycastHit hit;
+          if (Physics.Raycast(ray, out hit)) {
+            Vector3 dir = hit.point - transform.position;
+            dir.z = 0;
+            dir.y = 0;
+            transform.Translate(dir * Time.deltaTime*5, Space.World);
+
+            // transform.Translate (dir * Time.DeltaTime * speed); // Try this if it doesn't work
+          }
         }
         if(Input.GetKey("d")) {
             transform.position += (new Vector3(-5f, 0f, 0f)  * Time.deltaTime);

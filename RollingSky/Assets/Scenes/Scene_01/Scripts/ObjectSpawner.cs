@@ -44,10 +44,9 @@ public class ObjectSpawner : MonoBehaviour
     void Start()
     {
      string[] lines = objectsPosition.text.Split('\n');
-        for (int i = 0; i < lines.Length; ++i) {
+        for (int i = 0; i < lines.Length-1; ++i) {
             //createTile(lines[j][i],(float)i,(float)j);  //lines[j][i]
             string[] coord = lines[i].Split(' ');
-            char tileType = char.Parse(coord[0]);
             // [object, x, y, z]
             createTile(char.Parse(coord[0]), new Vector3(float.Parse(coord[1]), float.Parse(coord[2]), float.Parse(coord[3])));
         }

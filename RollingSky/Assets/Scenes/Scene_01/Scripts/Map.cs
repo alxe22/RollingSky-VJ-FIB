@@ -48,7 +48,6 @@ public class Map : MonoBehaviour
     void Start()
     {
           string[] lines = Maptxt.text.Split('\n');
-          Debug.Log(lines.Length);
           for (int j = 0; j < lines.Length-1; ++j) {
             for (int i = 0; i < 5; ++i) {
               createTile(lines[j][i],(float)i,(float)j);  //lines[j][i]
