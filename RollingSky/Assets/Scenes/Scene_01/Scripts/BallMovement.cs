@@ -76,28 +76,24 @@ public class BallMovement : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.name == "lv01-floor-arrow-jump(Clone)") {
-            Debug.Log("Collision with: " + other.gameObject.name);
             if (!isJumping && !isFalling) isJumping = true;
         }
         // floor walls
-        else if (other.gameObject.name == "lv01-wall-blue(Clone)" || 
-                other.gameObject.name == "lv01-wall-green(Clone)" || 
+        else if (other.gameObject.name == "lv01-wall-blue(Clone)" ||
+                other.gameObject.name == "lv01-wall-green(Clone)" ||
                 other.gameObject.name == "lv01-wall-red(Clone)" ||
                 other.gameObject.name == "lv01-wall-orange(Clone)" ||
-                other.gameObject.name == "lv01-wall-yellow(Clone)") {
-            Debug.Log("Wall");
+                other.gameObject.name == "yellow_wall") {
             obstacleCollision();
         }
         else if(other.gameObject.name == "floating-cube(Clone") {
-            Debug.Log("Cube");
             obstacleCollision();
         }
         else if(other.gameObject.name == "lv01-obstacle-identity-disc(Clone)") {
-            Debug.Log("identity disc");
             obstacleCollision();
         }
-        else {
-            Debug.Log("There is any collision behaivour for: " + other.gameObject.name);
+        else if(other.gameObject.name == "floating-cube(Clone)") {    
+          obstacleCollision();
         }
     }
 
