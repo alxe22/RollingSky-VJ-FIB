@@ -13,7 +13,7 @@ public class BallMovement : MonoBehaviour
 
     void Start()
     {
-        //transform.rotation = Quaternion.Euler(90, 0, 0);
+        Physics.gravity = new Vector3(0, -100.0f, 0);
     }
 
 	void Update ()
@@ -43,17 +43,10 @@ public class BallMovement : MonoBehaviour
             //transform.Rotate(new Vector3(1, 0, 0) * degreesPerSecond * Time.deltaTime, Space.Self);
             //if (transform.position.y > 0.373f) transform.rotation = Quaternion.Euler(0, 90, 0);
 
-            if (Input.GetMouseButton(0)){
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit)) {
-                Vector3 dir = hit.point - transform.position;
-                dir.z = 0;
-                dir.y = 0;
-                transform.Translate(dir * Time.deltaTime*5, Space.World);
-
-                // transform.Translate (dir * Time.DeltaTime * speed); // Try this if it doesn't work
-            }
+            if (Input.GetMouseButton(0)) {
+                Vector3 mouse = new Vector3(Input.mousePosition.x, Input.mousePosition.y, transform.position.z);
+                Vector3 PosObj = Camera.main.ScreenToWorldPoint(mouse);
+                transform.position = new Vector3(-PosObj.x/8, transform.position.y, transform.position.z);
             }
             if(Input.GetKey("d")) {
                 transform.position += (new Vector3(-5f, 0f, 0f)  * Time.deltaTime);
