@@ -8,6 +8,8 @@ public class BallMovement : MonoBehaviour
     public float degreesPerSecond = 120.0f, maxJumpHeight = 4.6f;
     private bool isJumping = false, isFalling = false;
     private bool hasCollide = false;
+    private bool ballDestroyed = false;
+    public GameObject slicedBall1, slicedBall2, slicedBall3, slicedBall4;
 
     void Start()
     {
@@ -60,6 +62,16 @@ public class BallMovement : MonoBehaviour
             else if(Input.GetKey("a")) {
                 transform.position += (new Vector3(5f, 0f, 0f)  * Time.deltaTime);
                 //transform.Rotate(new Vector3(0, 1, 1) * -20f * Time.deltaTime, Space.Self);
+            }
+        }
+        else {
+            gameObject.GetComponent<MeshRenderer>().enabled = false;
+            if (!ballDestroyed) {
+                ballDestroyed = true;
+                slicedBall1.transform.position = transform.position;
+                slicedBall2.transform.position = transform.position;
+                slicedBall3.transform.position = transform.position;
+                slicedBall4.transform.position = transform.position;
             }
         }
     }
