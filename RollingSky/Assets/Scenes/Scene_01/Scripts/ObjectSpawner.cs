@@ -14,9 +14,11 @@ public class ObjectSpawner : MonoBehaviour
     public GameObject floatingCube;
     public TextAsset objectsPosition;
 
-    void createTile(char tile, Vector3 pos) {
+    void createTile(char tile, Vector3 pos, ref int Diamond_count) {
         if(tile == '1') {
+          Diamond_count += 1;
             GameObject objectInstance = Instantiate(diamond, pos, Quaternion.Euler(Vector3.left*90)) as GameObject;
+            objectInstance.name = "Diamond" + Diamond_count;
         }
         else if(tile == '2') {
             GameObject objectInstance = Instantiate(identityDisc, pos, identityDisc.transform.rotation) as GameObject;
@@ -44,11 +46,12 @@ public class ObjectSpawner : MonoBehaviour
     void Start()
     {
      string[] lines = objectsPosition.text.Split('\n');
+     int Diamond_count = 0;
         for (int i = 0; i < lines.Length-1; ++i) {
             //createTile(lines[j][i],(float)i,(float)j);  //lines[j][i]
             string[] coord = lines[i].Split(' ');
             // [object, x, y, z]
-            createTile(char.Parse(coord[0]), new Vector3(float.Parse(coord[1]), float.Parse(coord[2]), float.Parse(coord[3])));
+            createTile(char.Parse(coord[0]), new Vector3(float.Parse(coord[1]), float.Parse(coord[2]), float.Parse(coord[3])),ref Diamond_count);
         }
     }
 }
