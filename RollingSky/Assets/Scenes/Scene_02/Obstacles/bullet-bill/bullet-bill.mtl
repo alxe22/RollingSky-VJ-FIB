@@ -1,0 +1,11 @@
+# Exported from 3D Builder
+
+newmtl 02_-_Default_0
+Kd 0.000000 0.000000 0.000000
+
+newmtl Mat_0
+Kd 1.000000 1.000000 1.000000
+map_Kd 07_-_Default_baseColor_17832851910588591680.png
+
+newmtl 03_-_Default_0
+Kd 0.970103 0.970103 0.970103
