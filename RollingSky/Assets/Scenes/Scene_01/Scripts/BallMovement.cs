@@ -10,6 +10,7 @@ public class BallMovement : MonoBehaviour
     private bool hasCollide = false;
     private bool ballDestroyed = false;
     public GameObject slicedBall1, slicedBall2, slicedBall3, slicedBall4;
+    private bool dead = false;
 
     void Start()
     {
@@ -18,7 +19,21 @@ public class BallMovement : MonoBehaviour
 
 	void Update ()
     {
-        if (!hasCollide) {
+        if(dead) {
+          if(Input.GetKey("space")) {
+            hasCollide = false;
+            transform.position = new Vector3(0f,0.375f,0f);
+            dead = false;
+            gameObject.GetComponent<MeshRenderer>().enabled = true;
+            slicedBall1.transform.position = new Vector3(-100,100,200);
+            slicedBall2.transform.position = new Vector3(-100,100,200);
+            slicedBall3.transform.position = new Vector3(-100,100,200);
+            slicedBall4.transform.position = new Vector3(-100,100,200);
+            ballDestroyed = false;
+
+          }
+        }
+        else if (!hasCollide) {
             transform.position += (offset  * Time.deltaTime);
             transform.Rotate(Vector3.left * 1000 * Time.deltaTime);
             if (isJumping || isFalling) {
@@ -65,6 +80,7 @@ public class BallMovement : MonoBehaviour
                 slicedBall2.transform.position = transform.position;
                 slicedBall3.transform.position = transform.position;
                 slicedBall4.transform.position = transform.position;
+                dead = true;
             }
         }
     }
@@ -92,7 +108,7 @@ public class BallMovement : MonoBehaviour
         else if(other.gameObject.name == "lv01-obstacle-identity-disc(Clone)") {
             obstacleCollision();
         }
-        else if(other.gameObject.name == "floating-cube(Clone)") {    
+        else if(other.gameObject.name == "floating-cube(Clone)") {
           obstacleCollision();
         }
     }
