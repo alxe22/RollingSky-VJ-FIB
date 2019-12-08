@@ -5,6 +5,8 @@ using UnityEngine;
 public class ObjectSpawner_lv2 : MonoBehaviour
 {
     public GameObject bulletBill;
+    public GameObject thwomp;
+    public GameObject bobOmb;
     public TextAsset objectsPosition;
     void createTile(char tile, Vector3 pos, ref int Diamond_count) {
         if(tile == '1') {
@@ -15,13 +17,13 @@ public class ObjectSpawner_lv2 : MonoBehaviour
         else if(tile == '2') {
             GameObject objectInstance = Instantiate(bulletBill, pos, bulletBill.transform.rotation) as GameObject;
         }
-        /*else if(tile == '3') {
-            GameObject objectInstance = Instantiate(blueWall, pos, blueWall.transform.rotation) as GameObject;
+        else if(tile == '3') {
+            GameObject objectInstance = Instantiate(thwomp, pos, thwomp.transform.rotation) as GameObject;
         }
         else if(tile == '4') {
-            GameObject objectInstance = Instantiate(greenWall, pos, greenWall.transform.rotation) as GameObject;
+            GameObject objectInstance = Instantiate(bobOmb, pos, bobOmb.transform.rotation) as GameObject;
         }
-        else if(tile == '5') {
+        /*else if(tile == '5') {
             GameObject objectInstance = Instantiate(yellowWall, pos, yellowWall.transform.rotation) as GameObject;
         }
         else if(tile == '6') {

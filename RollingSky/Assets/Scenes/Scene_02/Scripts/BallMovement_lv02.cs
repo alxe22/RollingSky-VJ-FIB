@@ -9,7 +9,7 @@ public class BallMovement_lv02 : MonoBehaviour
     private bool isJumping = false, isFalling = false;
     private bool hasCollide = false;
     private bool ballDestroyed = false;
-    //public GameObject slicedBall1, slicedBall2, slicedBall3, slicedBall4;
+    public GameObject slicedBall1, slicedBall2, slicedBall3, slicedBall4;
 
     void Start()
     {
@@ -59,13 +59,13 @@ public class BallMovement_lv02 : MonoBehaviour
         }
         else {
             gameObject.GetComponent<MeshRenderer>().enabled = false;
-            /*if (!ballDestroyed) {
+            if (!ballDestroyed) {
                 ballDestroyed = true;
                 slicedBall1.transform.position = transform.position;
                 slicedBall2.transform.position = transform.position;
                 slicedBall3.transform.position = transform.position;
                 slicedBall4.transform.position = transform.position;
-            }*/
+            }
         }
     }
 
@@ -78,6 +78,18 @@ public class BallMovement_lv02 : MonoBehaviour
         if (other.gameObject.name == "lv02-floor-pipe(Clone)") {
             Debug.Log("Collision with: " + other.gameObject.name);
             if (!isJumping && !isFalling) isJumping = true;
+        }
+        else if (other.gameObject.name == "bullet-bill(Clone)") {
+            Debug.Log("Collision with: " + other.gameObject.name);
+            obstacleCollision();
+        }
+        else if (other.gameObject.name == "thwomp(Clone)") {
+            Debug.Log("Collision with: " + other.gameObject.name);
+            obstacleCollision();
+        }
+        else if(other.gameObject.name == "Bob-omb") {
+            Debug.Log("Collision with: " + other.gameObject.name);
+            obstacleCollision();
         }
         else {
             Debug.Log("There is any collision behaivour for: " + other.gameObject.name);
