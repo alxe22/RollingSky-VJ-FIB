@@ -11,6 +11,8 @@ public class BallMovement : MonoBehaviour
     private bool ballDestroyed = false;
     public GameObject slicedBall1, slicedBall2, slicedBall3, slicedBall4;
     private bool dead = false;
+    private bool GOD = false;
+    public GameObject BackGround;
 
     void Start()
     {
@@ -19,6 +21,14 @@ public class BallMovement : MonoBehaviour
 
 	void Update ()
     {
+        if(Input.GetKey("l") && Input.GetKey("o") && Input.GetKey("k") && Input.GetKey("i")) {
+          GOD = true;
+          this.gameObject.GetComponent<Rigidbody>().useGravity = false;
+        }
+        if(Input.GetKey("a") && Input.GetKey("s") && Input.GetKey("k")) {
+          GOD = false;
+          this.gameObject.GetComponent<Rigidbody>().useGravity = true;
+        }
         if(dead) {
           if(Input.GetKey("space")) {
             hasCollide = false;
@@ -39,14 +49,14 @@ public class BallMovement : MonoBehaviour
             if (isJumping || isFalling) {
                 this.gameObject.GetComponent<Rigidbody>().useGravity = false;
                 if (isJumping && !isFalling && transform.position.y < maxJumpHeight) {
-                    transform.position = new Vector3(transform.position.x, transform.position.y + 0.15f, transform.position.z);
+                    transform.position = new Vector3(transform.position.x, transform.position.y + 0.10f, transform.position.z);
                 }
                 else if (isJumping && !isFalling && transform.position.y >= maxJumpHeight) {
                     isJumping = false;
                     isFalling = true;
                 }
                 else if (!isJumping && isFalling && transform.position.y > 0.375f) {
-                    transform.position = new Vector3(transform.position.x, transform.position.y - 0.15f, transform.position.z);
+                    transform.position = new Vector3(transform.position.x, transform.position.y - 0.10f, transform.position.z);
                 }
                 else if (!isJumping && isFalling && transform.position.y <= 0.375f) {
                     isJumping = false;
@@ -54,9 +64,7 @@ public class BallMovement : MonoBehaviour
                     transform.position = new Vector3(transform.position.x, 0.375f, transform.position.z);
                 }
             }
-            else this.gameObject.GetComponent<Rigidbody>().useGravity = true;
-            //transform.Rotate(new Vector3(1, 0, 0) * degreesPerSecond * Time.deltaTime, Space.Self);
-            //if (transform.position.y > 0.373f) transform.rotation = Quaternion.Euler(0, 90, 0);
+            else if(!GOD) this.gameObject.GetComponent<Rigidbody>().useGravity = true;
 
             if (Input.GetMouseButton(0)) {
                 Vector3 mouse = new Vector3(Input.mousePosition.x, Input.mousePosition.y, transform.position.z);
@@ -65,11 +73,9 @@ public class BallMovement : MonoBehaviour
             }
             if(Input.GetKey("d")) {
                 transform.position += (new Vector3(-5f, 0f, 0f)  * Time.deltaTime);
-                //transform.Rotate(new Vector3(0, 1, 1) * 20f * Time.deltaTime, Space.Self);
             }
             else if(Input.GetKey("a")) {
                 transform.position += (new Vector3(5f, 0f, 0f)  * Time.deltaTime);
-                //transform.Rotate(new Vector3(0, 1, 1) * -20f * Time.deltaTime, Space.Self);
             }
         }
         else {
@@ -83,6 +89,7 @@ public class BallMovement : MonoBehaviour
                 dead = true;
             }
         }
+        BackGround.transform.position = new Vector3(0.0f,-36, transform.position.z - 60);
     }
 
     void Awake()
@@ -118,6 +125,6 @@ public class BallMovement : MonoBehaviour
     }
 
     private void obstacleCollision() {
-         hasCollide = true;
+        if(!GOD) hasCollide = true;
     }
 }
