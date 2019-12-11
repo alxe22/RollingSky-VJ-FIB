@@ -2,24 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class bobOmbBehaivour : MonoBehaviour
+public class starBehaviour : MonoBehaviour
 {
     public bool enter = true;
     public bool stay = true;
     public bool exit = true;
     public float moveSpeed;
 
+    public GameObject particleSystemContainer;
     public GameObject defaultMat;
 
     private bool collisionParticlesActivated = false;
 
-    private float degreesPerSecond = 90.0f;
 
     ParticleSystem ps;
 
     void Awake()
     {
-        ps = gameObject.GetComponent<ParticleSystem>();
+        ps = particleSystemContainer.GetComponent<ParticleSystem>();
         ps.Stop();
     }
 
@@ -36,6 +36,7 @@ public class bobOmbBehaivour : MonoBehaviour
                 defaultMat.GetComponent<MeshRenderer>().enabled = false;
                 collisionParticlesActivated = true;
             }
+            Debug.Log("entered");
             Destroy(gameObject, 0.3f);
         }
     }

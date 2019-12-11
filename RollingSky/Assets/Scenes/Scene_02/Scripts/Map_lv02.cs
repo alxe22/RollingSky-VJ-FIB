@@ -11,6 +11,7 @@ public class Map_lv02 : MonoBehaviour
     public Transform pipeTile;
     public Transform questionTile;
     public Transform grassTile;
+    public Transform movingPipeTile;
     public List<Transform> Tiles = new List<Transform>();
 
     public TextAsset Maptxt;
@@ -35,6 +36,10 @@ public class Map_lv02 : MonoBehaviour
       }
       else if(tile == '5') {
         Transform newTile = Instantiate(grassTile,pos,Quaternion.Euler(Vector3.left*90)) as Transform;
+        Tiles.Add(newTile);
+      }
+      else if(tile == '6') {
+        Transform newTile = Instantiate(movingPipeTile,pos,Quaternion.Euler(Vector3.left*90)) as Transform;
         Tiles.Add(newTile);
       }
     }

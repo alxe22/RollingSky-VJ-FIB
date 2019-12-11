@@ -75,21 +75,16 @@ public class BallMovement_lv02 : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name == "lv02-floor-pipe(Clone)") {
-            Debug.Log("Collision with: " + other.gameObject.name);
+        if (other.gameObject.name == "lv02-floor-pipe(Clone)" || other.gameObject.name == "lv02-floor-pipe-moving") {
             if (!isJumping && !isFalling) isJumping = true;
         }
         else if (other.gameObject.name == "bullet-bill") {
-            Debug.Log("Collision with bullet bill: " + other.gameObject.name);
             obstacleCollision();
         }
         else if (other.gameObject.name == "thwomp") {
-            Debug.Log("Collision with: " + other.gameObject.name);
             obstacleCollision();
         }
         else if(other.gameObject.name == "Bob-omb") {
-            Debug.Log("Collision with: " + other.gameObject.name);
-            other.gameObject.GetComponent<ParticleSystem>().Play();
             obstacleCollision();
         }
         else {
