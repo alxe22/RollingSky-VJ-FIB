@@ -9,5 +9,5 @@ public class CameraMovement : MonoBehaviour {
 
 	public Transform transformPlayer;
 	void Update () {
-		transform.position = new Vector3(0, 3.033f, 3.963f + transformPlayer.position.z);
+		if(transformPlayer.position.y > 0 || transformPlayer.position.z < -425) transform.position = new Vector3(0, 3.033f, 3.963f + transformPlayer.position.z);
 	}}
