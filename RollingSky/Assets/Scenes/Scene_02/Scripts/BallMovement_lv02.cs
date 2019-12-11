@@ -79,16 +79,17 @@ public class BallMovement_lv02 : MonoBehaviour
             Debug.Log("Collision with: " + other.gameObject.name);
             if (!isJumping && !isFalling) isJumping = true;
         }
-        else if (other.gameObject.name == "bullet-bill(Clone)") {
-            Debug.Log("Collision with: " + other.gameObject.name);
+        else if (other.gameObject.name == "bullet-bill") {
+            Debug.Log("Collision with bullet bill: " + other.gameObject.name);
             obstacleCollision();
         }
-        else if (other.gameObject.name == "thwomp(Clone)") {
+        else if (other.gameObject.name == "thwomp") {
             Debug.Log("Collision with: " + other.gameObject.name);
             obstacleCollision();
         }
         else if(other.gameObject.name == "Bob-omb") {
             Debug.Log("Collision with: " + other.gameObject.name);
+            other.gameObject.GetComponent<ParticleSystem>().Play();
             obstacleCollision();
         }
         else {

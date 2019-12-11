@@ -35,7 +35,7 @@ public class ThwompBehaivour : MonoBehaviour
 		}
         else if (obstaclePosition - playerPosition <= 0f) {
             transform.rotation = originalRotation;
-            if(transform.position.y > 0.5f) transform.position = new Vector3(transform.position.x, transform.position.y-0.05f, transform.position.z);
+            if(transform.position.y > 0.5f) transform.position = new Vector3(transform.position.x, transform.position.y-0.03f, transform.position.z);
         }
     }
 }
