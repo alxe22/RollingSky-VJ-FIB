@@ -38,7 +38,6 @@ public class DiamondBehaivour : MonoBehaviour
                 defaultMat.GetComponent<MeshRenderer>().enabled = false;
                 collisionParticlesActivated = true;
             }
-            Debug.Log("entered");
             Destroy(gameObject, 0.3f);
         }
     }
