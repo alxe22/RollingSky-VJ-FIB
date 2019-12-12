@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BallMovement_lv02 : MonoBehaviour
 {
@@ -10,15 +11,29 @@ public class BallMovement_lv02 : MonoBehaviour
     private bool hasCollide = false;
     private bool ballDestroyed = false;
     public GameObject slicedBall1, slicedBall2, slicedBall3, slicedBall4;
+    private bool GOD = false;
+    public Text GodMode;
 
     void Start()
     {
         Physics.gravity = new Vector3(0, -100.0f, 0);
+        GodMode.transform.localScale = new Vector3(0,0,1);
     }
 
 	void Update ()
     {
-        if (!hasCollide) {
+      if(Input.GetKey("l") && Input.GetKey("o") && Input.GetKey("k") && Input.GetKey("i")) {
+        GOD = true;
+        GodMode.transform.localScale = new Vector3(1,1,1);
+        this.gameObject.GetComponent<Rigidbody>().useGravity = false;
+      }
+      if(Input.GetKey("a") && Input.GetKey("s") && Input.GetKey("k")) {
+        GOD = false;
+        GodMode.transform.localScale = new Vector3(0,0,1);
+        this.gameObject.GetComponent<Rigidbody>().useGravity = true;
+      }
+      if (!hasCollide) {
+          if(!(Input.GetKey("p") && GOD)) {
             transform.position += (offset  * Time.deltaTime);
             transform.Rotate(Vector3.left * 1000 * Time.deltaTime);
             if (isJumping || isFalling) {
@@ -39,7 +54,7 @@ public class BallMovement_lv02 : MonoBehaviour
                     transform.position = new Vector3(transform.position.x, 0.375f, transform.position.z);
                 }
             }
-            else this.gameObject.GetComponent<Rigidbody>().useGravity = true;
+            else if(!GOD) this.gameObject.GetComponent<Rigidbody>().useGravity = true;
             //transform.Rotate(new Vector3(1, 0, 0) * degreesPerSecond * Time.deltaTime, Space.Self);
             //if (transform.position.y > 0.373f) transform.rotation = Quaternion.Euler(0, 90, 0);
 
@@ -56,17 +71,18 @@ public class BallMovement_lv02 : MonoBehaviour
                 transform.position += (new Vector3(5f, 0f, 0f)  * Time.deltaTime);
                 //transform.Rotate(new Vector3(0, 1, 1) * -20f * Time.deltaTime, Space.Self);
             }
-        }
-        else {
-            gameObject.GetComponent<MeshRenderer>().enabled = false;
-            if (!ballDestroyed) {
-                ballDestroyed = true;
-                slicedBall1.transform.position = transform.position;
-                slicedBall2.transform.position = transform.position;
-                slicedBall3.transform.position = transform.position;
-                slicedBall4.transform.position = transform.position;
-            }
-        }
+          }
+      }
+      else {
+          gameObject.GetComponent<MeshRenderer>().enabled = false;
+          if (!ballDestroyed) {
+              ballDestroyed = true;
+              slicedBall1.transform.position = transform.position;
+              slicedBall2.transform.position = transform.position;
+              slicedBall3.transform.position = transform.position;
+              slicedBall4.transform.position = transform.position;
+          }
+      }
     }
 
     void Awake()
@@ -97,6 +113,8 @@ public class BallMovement_lv02 : MonoBehaviour
     }
 
     private void obstacleCollision() {
-         hasCollide = true;
+      if(!GOD) {
+       hasCollide = true;
+      }
     }
 }
