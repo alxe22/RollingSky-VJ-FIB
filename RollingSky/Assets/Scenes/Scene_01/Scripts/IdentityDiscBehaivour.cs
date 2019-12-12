@@ -5,7 +5,7 @@ using UnityEngine;
 public class IdentityDiscBehaivour : MonoBehaviour
 {
     private bool isMovingLeft = true;
-    public float speed;
+    private float speed = 0.05f;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,8 +22,7 @@ public class IdentityDiscBehaivour : MonoBehaviour
         else {
             transform.position = new Vector3(transform.position.x - speed, transform.position.y, transform.position.z);
         }
-        if (transform.position.x <= -2f || transform.position.x >= 2f) {
-            isMovingLeft = !isMovingLeft;
-        }
+        if (transform.position.x <= -2f) isMovingLeft = true;
+        else if(transform.position.x >= 2f) isMovingLeft = false;
     }
 }

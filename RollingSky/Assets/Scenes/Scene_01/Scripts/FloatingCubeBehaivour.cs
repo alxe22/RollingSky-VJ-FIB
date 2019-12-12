@@ -37,6 +37,7 @@ public class FloatingCubeBehaivour : MonoBehaviour
 				originRotation.z,
 				originRotation.w);
 			  temp_shake_intensity -= shake_decay;
+        transform.position = new Vector3(transform.position.x, 1.5f, transform.position.z);
 		}
 
     }
