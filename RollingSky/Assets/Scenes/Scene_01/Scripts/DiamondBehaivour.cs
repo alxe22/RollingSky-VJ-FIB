@@ -19,7 +19,7 @@ public class DiamondBehaivour : MonoBehaviour
     ParticleSystem ps;
 
     void Awake()
-    {
+    { 
         ps = particleSystemContainer.GetComponent<ParticleSystem>();
         ps.Stop();
     }
