@@ -12,6 +12,7 @@ public class BallMovement_lv02 : MonoBehaviour
     private bool ballDestroyed = false;
     public GameObject slicedBall1, slicedBall2, slicedBall3, slicedBall4;
     private bool GOD = false;
+    public GameObject BackGround;
     public Text GodMode;
 
     void Start()
@@ -83,6 +84,7 @@ public class BallMovement_lv02 : MonoBehaviour
               slicedBall4.transform.position = transform.position;
           }
       }
+      BackGround.transform.position = new Vector3(0.0f,-36, transform.position.z - 80);
     }
 
     void Awake()
