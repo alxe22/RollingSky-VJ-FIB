@@ -106,14 +106,14 @@ public class BallMovement : MonoBehaviour
               if (isJumping || isFalling) {
                   this.gameObject.GetComponent<Rigidbody>().useGravity = false;
                   if (isJumping && !isFalling && transform.position.y < maxJumpHeight) {
-                      transform.position = new Vector3(transform.position.x, transform.position.y + 0.09f, transform.position.z);
+                      transform.position = new Vector3(transform.position.x, transform.position.y + 0.15f, transform.position.z);
                   }
                   else if (isJumping && !isFalling && transform.position.y >= maxJumpHeight) {
                       isJumping = false;
                       isFalling = true;
                   }
                   else if (!isJumping && isFalling && transform.position.y > 0.375f) {
-                      transform.position = new Vector3(transform.position.x, transform.position.y - 0.09f, transform.position.z);
+                      transform.position = new Vector3(transform.position.x, transform.position.y - 0.15f, transform.position.z);
                   }
                   else if (!isJumping && isFalling && transform.position.y <= 0.375f) {
                       isJumping = false;

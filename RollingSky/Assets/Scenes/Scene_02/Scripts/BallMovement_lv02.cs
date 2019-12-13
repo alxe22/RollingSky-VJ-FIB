@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class BallMovement_lv02 : MonoBehaviour
 {
     Vector3 offset = new Vector3(0.0f, 0.0f, -10.0f);
-    public float degreesPerSecond = 120.0f, maxJumpHeight = 4.6f;
+    public float degreesPerSecond = 120.0f, maxJumpHeight = 2.4f;
     private bool isJumping = false, isFalling = false;
     private bool hasCollide = false;
     private bool ballDestroyed = false;
@@ -102,9 +102,6 @@ public class BallMovement_lv02 : MonoBehaviour
         }
         else if(other.gameObject.name == "Bob-omb") {
             obstacleCollision();
-        }
-        else {
-            Debug.Log("There is any collision behaivour for: " + other.gameObject.name);
         }
     }
 

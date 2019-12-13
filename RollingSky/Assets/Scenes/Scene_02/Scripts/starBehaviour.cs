@@ -14,6 +14,7 @@ public class starBehaviour : MonoBehaviour
 
     private bool collisionParticlesActivated = false;
 
+    private float degreesPerSecond = 90.0f;
 
     ParticleSystem ps;
 
@@ -25,6 +26,7 @@ public class starBehaviour : MonoBehaviour
 
     void Update()
     {
+        transform.Rotate(new Vector3(0, 1, 0) * degreesPerSecond * Time.deltaTime,Space.Self);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -36,7 +38,6 @@ public class starBehaviour : MonoBehaviour
                 defaultMat.GetComponent<MeshRenderer>().enabled = false;
                 collisionParticlesActivated = true;
             }
-            Debug.Log("entered");
             Destroy(gameObject, 0.3f);
         }
     }
