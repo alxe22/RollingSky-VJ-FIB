@@ -99,12 +99,12 @@ public class BallMovement_lv03 : MonoBehaviour
         }
         else if (other.gameObject.name == "thwomp") {
             obstacleCollision();
-        }
-        else if(other.gameObject.name == "Bob-omb") {
-            obstacleCollision();
         }*/
+        else if (other.gameObject.name == "goku-stick(Clone)") {
+            //obstacleCollision();
+        }
         else {
-            Debug.Log("There is any collision behaivour for: " + other.gameObject.name);
+            Debug.Log("There is any trigger collision behaivour for: " + other.gameObject.name);
         }
     }
 

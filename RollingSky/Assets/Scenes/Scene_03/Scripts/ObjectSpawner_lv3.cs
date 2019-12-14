@@ -8,6 +8,7 @@ public class ObjectSpawner_lv3 : MonoBehaviour
     public GameObject thwomp;
     public GameObject bobOmb;*/
     public GameObject dragonBall;
+    public GameObject stick;
     public TextAsset objectsPosition;
     void createTile(char tile, Vector3 pos, ref int dragonBallCount) {
         if(tile == '1') {
@@ -15,10 +16,10 @@ public class ObjectSpawner_lv3 : MonoBehaviour
             GameObject objectInstance = Instantiate(dragonBall, pos, dragonBall.transform.rotation) as GameObject;
             objectInstance.name = "dragonBall" + dragonBallCount;
         }
-        /*else if(tile == '2') {
-            GameObject objectInstance = Instantiate(bulletBill, pos, bulletBill.transform.rotation) as GameObject;
+        else if(tile == '2') {
+            GameObject objectInstance = Instantiate(stick, pos, stick.transform.rotation) as GameObject;
         }
-        else if(tile == '3') {
+        /*else if(tile == '3') {
             GameObject objectInstance = Instantiate(thwomp, pos, thwomp.transform.rotation) as GameObject;
         }
         else if(tile == '4') {
