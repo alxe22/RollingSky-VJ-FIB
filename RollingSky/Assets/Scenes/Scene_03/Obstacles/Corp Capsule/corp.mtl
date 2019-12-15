@@ -1,0 +1,41 @@
+# Exported from 3D Builder
+
+newmtl Mat_0
+Kd 1.000000 1.000000 1.000000
+map_Kd Marco_low_baseColor_17832851910588591680.png
+
+newmtl Mat_1
+Kd 1.000000 1.000000 1.000000
+map_Kd Marcoext_low_baseColor_6672996682974157280.png
+
+newmtl Mat_2
+Kd 1.000000 1.000000 1.000000
+map_Kd Windows_baseColor_12136749704190523488.png
+
+newmtl Mat_3
+Kd 1.000000 1.000000 1.000000
+map_Kd door_low_baseColor_9919837686481292364.png
+
+newmtl Mat_4
+Kd 1.000000 1.000000 1.000000
+map_Kd Patas_low_baseColor_11899704555594244116.png
+
+newmtl Mat_5
+Kd 1.000000 1.000000 1.000000
+map_Kd Base_low_baseColor_5046405598993221836.png
+
+newmtl Mat_6
+Kd 1.000000 1.000000 1.000000
+map_Kd BrazosDoor_low_baseColor_7532134839153738640.png
+
+newmtl Mat_7
+Kd 1.000000 1.000000 1.000000
+map_Kd Interior_low_baseColor_5090655307731093264.png
+
+newmtl Mat_8
+Kd 1.000000 1.000000 1.000000
+map_Kd Pata_base_low_baseColor_2834719412083903128.png
+
+newmtl Mat_9
+Kd 1.000000 1.000000 1.000000
+map_Kd gravity_low_baseColor_7419036031785612040.png

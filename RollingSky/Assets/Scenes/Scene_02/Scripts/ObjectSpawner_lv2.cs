@@ -32,7 +32,7 @@ public class ObjectSpawner_lv2 : MonoBehaviour
      int starCount = 0;
         for (int i = 0; i < lines.Length-1; ++i) {
             string[] coord = lines[i].Split(' ');
-            createTile(char.Parse(coord[0]), new Vector3(float.Parse(coord[1]), float.Parse(coord[2]), float.Parse(coord[3])),ref starCount);
+            createTile(char.Parse(coord[0]), new Vector3(-float.Parse(coord[1]), float.Parse(coord[2]), float.Parse(coord[3])+1),ref starCount);
         }
     }
 }

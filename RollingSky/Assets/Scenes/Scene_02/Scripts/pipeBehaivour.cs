@@ -16,13 +16,12 @@ public class pipeBehaivour : MonoBehaviour
     void Update()
     {
         if (isMovingLeft) {
-            transform.position = new Vector3(transform.position.x + 0.01f, transform.position.y, transform.position.z);
+            transform.position = new Vector3(transform.position.x + 3f*Time.deltaTime, transform.position.y, transform.position.z);
         }
         else {
-            transform.position = new Vector3(transform.position.x - 0.01f, transform.position.y, transform.position.z);
+            transform.position = new Vector3(transform.position.x - 3f*Time.deltaTime, transform.position.y, transform.position.z);
         }
-        if (transform.position.x <= -2f || transform.position.x >= 2f) {
-            isMovingLeft = !isMovingLeft;
-        }
+        if (transform.position.x <= -1.5f) isMovingLeft = true;
+        else if(transform.position.x >= 1.5f) isMovingLeft = false;
     }
 }

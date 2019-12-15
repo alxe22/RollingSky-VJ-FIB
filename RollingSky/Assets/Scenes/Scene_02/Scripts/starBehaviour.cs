@@ -14,17 +14,23 @@ public class starBehaviour : MonoBehaviour
 
     private bool collisionParticlesActivated = false;
 
+    private float degreesPerSecond = 90.0f;
 
     ParticleSystem ps;
+
+    public AudioClip SoundCol;
+    public AudioSource Music;
 
     void Awake()
     {
         ps = particleSystemContainer.GetComponent<ParticleSystem>();
         ps.Stop();
+        Music.clip = SoundCol;
     }
 
     void Update()
     {
+        transform.Rotate(new Vector3(0, 1, 0) * degreesPerSecond * Time.deltaTime,Space.Self);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -32,11 +38,12 @@ public class starBehaviour : MonoBehaviour
         if (enter)
         {
             if (!collisionParticlesActivated) {
+                Music.Play(0);
                 ps.Play();
                 defaultMat.GetComponent<MeshRenderer>().enabled = false;
                 collisionParticlesActivated = true;
+
             }
-            Debug.Log("entered");
             Destroy(gameObject, 0.3f);
         }
     }
