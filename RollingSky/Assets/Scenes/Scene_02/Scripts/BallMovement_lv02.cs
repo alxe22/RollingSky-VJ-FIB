@@ -57,19 +57,19 @@ public class BallMovement_lv02 : MonoBehaviour
         if(transform.position.z < -105) checkpoint = 1;
         if(transform.position.z < -211) checkpoint = 2;
         if(transform.position.z < -317) checkpoint = 3;
-        if(Input.GetKey("l") && Input.GetKey("o") && Input.GetKey("k") && Input.GetKey("i")) {
+        if(Input.GetKey("l")) {
           GOD = true;
           GodMode.transform.localScale = new Vector3(1,1,1);
           this.gameObject.GetComponent<Rigidbody>().useGravity = false;
         }
-        if(Input.GetKey("a") && Input.GetKey("s") && Input.GetKey("k")) {
+        if(Input.GetKey("g")) {
           GOD = false;
           GodMode.transform.localScale = new Vector3(0,0,1);
           this.gameObject.GetComponent<Rigidbody>().useGravity = true;
         }
         if(dead) {
           Music.Pause();
-          transform.position = deadPos;
+          transform.position = new Vector3(transform.position.x, transform.position.y,deadPos.z);
           if(Retry.transform.localScale.x < 6) Retry.transform.localScale = new Vector3(Retry.transform.localScale.x + 0.4f, Retry.transform.localScale.y + 0.4f, Retry.transform.localScale.z);
           if(Input.GetKey("space")) {
             Music.Play(0);
@@ -99,7 +99,10 @@ public class BallMovement_lv02 : MonoBehaviour
           }
         }
         //fall condition
-        if(transform.position.y < -2) dead = true;
+        if(transform.position.y < -2) {
+          dead = true;
+          deadPos = transform.position;
+        }
         else if (!hasCollide && !finish) {
             if(!(Input.GetKey("p") && GOD)) {
               transform.position += (offset  * Time.deltaTime);
@@ -174,6 +177,7 @@ public class BallMovement_lv02 : MonoBehaviour
 
     private void obstacleCollision() {
         if(!GOD) {
+          deadPos = transform.position;
           hasCollide = true;
           Music.Pause();
           ColSound.Play(0);
