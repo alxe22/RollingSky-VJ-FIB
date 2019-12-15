@@ -45,7 +45,7 @@ public class BallMovement : MonoBehaviour
       if(!started) {
         StartText.transform.localScale = new Vector3(1,1,1);
         transform.Rotate(Vector3.left * 1000 * Time.deltaTime);
-        if (Input.GetKey("space") || Input.GetMouseButton(0)) {
+        if (Input.GetKey("space")) {
           started = true;
           Music.Play(0);
           StartText.transform.localScale = new Vector3(0,0,0);
@@ -69,7 +69,7 @@ public class BallMovement : MonoBehaviour
         if(dead) {
           Music.Pause();
           if(Retry.transform.localScale.x < 6) Retry.transform.localScale = new Vector3(Retry.transform.localScale.x + 0.4f, Retry.transform.localScale.y + 0.4f, Retry.transform.localScale.z);
-          if(Input.GetKey("space") || Input.GetMouseButton(0)) {
+          if(Input.GetKey("space")) {
             Music.Play(0);
             hasCollide = false;
             if(checkpoint == 0) transform.position = new Vector3(0f,0.375f,0f);
@@ -93,12 +93,12 @@ public class BallMovement : MonoBehaviour
           if(!finish) SoundFinish.Play(0);
           finish = true;
           if(Finish.transform.localScale.x < 6) Finish.transform.localScale = new Vector3(Finish.transform.localScale.x + 0.4f, Finish.transform.localScale.y + 0.4f, Finish.transform.localScale.z);
-          if(Input.GetKey("space") || Input.GetMouseButton(0)) {
+          if(Input.GetKey("space")) {
             Application.LoadLevel(Application.loadedLevel);
           }
         }
         //fall condition
-        if(transform.position.y < 0) dead = true;
+        if(transform.position.y < -2) dead = true;
         else if (!hasCollide && !finish) {
             if(!(Input.GetKey("p") && GOD)) {
               transform.position += (offset  * Time.deltaTime);
@@ -106,14 +106,14 @@ public class BallMovement : MonoBehaviour
               if (isJumping || isFalling) {
                   this.gameObject.GetComponent<Rigidbody>().useGravity = false;
                   if (isJumping && !isFalling && transform.position.y < maxJumpHeight) {
-                      transform.position = new Vector3(transform.position.x, transform.position.y + 0.09f, transform.position.z);
+                      transform.position = new Vector3(transform.position.x, transform.position.y + 10f*Time.deltaTime, transform.position.z);
                   }
                   else if (isJumping && !isFalling && transform.position.y >= maxJumpHeight) {
                       isJumping = false;
                       isFalling = true;
                   }
                   else if (!isJumping && isFalling && transform.position.y > 0.375f) {
-                      transform.position = new Vector3(transform.position.x, transform.position.y - 0.09f, transform.position.z);
+                      transform.position = new Vector3(transform.position.x, transform.position.y - 10f*Time.deltaTime, transform.position.z);
                   }
                   else if (!isJumping && isFalling && transform.position.y <= 0.375f) {
                       isJumping = false;

@@ -4,16 +4,21 @@ using UnityEngine;
 
 public class BulletBillBehaivour : MonoBehaviour
 {
-     Vector3 offset = new Vector3(0.0f, 0.0f, 10.0f);
+    public Transform playerTransform;
+    Vector3 offset = new Vector3(0.0f, 0.0f, 10.0f);
+    Vector3 originPos;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
+      originPos = transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position += (offset  * Time.deltaTime);
+      float playerPosition = playerTransform.position.z * (-1f);
+      float obstaclePosition = transform.position.z * (-1f);
+      if (originPos.z*(-1) - playerPosition > 50) transform.position = originPos;
+      else transform.position += (offset  * Time.deltaTime);
     }
 }
