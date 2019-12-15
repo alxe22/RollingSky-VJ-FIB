@@ -13,6 +13,7 @@ public class BallMovement_lv02 : MonoBehaviour
     public GameObject slicedBall1, slicedBall2, slicedBall3, slicedBall4;
     private bool finish = false;
     private bool dead = false;
+    private Vector3 deadPos;
     private bool GOD = false;
     public GameObject BackGround;
     private int checkpoint = 0;
@@ -38,6 +39,7 @@ public class BallMovement_lv02 : MonoBehaviour
         Music.clip = BackMusic;
         ColSound.clip = SoundCol;
         SoundFinish.clip = FinishSound;
+        deadPos = new Vector3(0,0,0);
     }
 
 	void Update ()
@@ -67,6 +69,7 @@ public class BallMovement_lv02 : MonoBehaviour
         }
         if(dead) {
           Music.Pause();
+          transform.position = deadPos;
           if(Retry.transform.localScale.x < 6) Retry.transform.localScale = new Vector3(Retry.transform.localScale.x + 0.4f, Retry.transform.localScale.y + 0.4f, Retry.transform.localScale.z);
           if(Input.GetKey("space")) {
             Music.Play(0);
