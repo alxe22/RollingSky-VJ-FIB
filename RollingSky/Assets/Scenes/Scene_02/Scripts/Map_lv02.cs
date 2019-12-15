@@ -11,6 +11,10 @@ public class Map_lv02 : MonoBehaviour
     public Transform pipeTile;
     public Transform questionTile;
     public Transform grassTile;
+    public Transform brickTileGlass;
+    public Transform brownTileGlass;
+    public Transform questionTileGlass;
+    public Transform grassTileGlass;
     public Transform movingPipeTile;
     public List<Transform> Tiles = new List<Transform>();
 
@@ -40,6 +44,22 @@ public class Map_lv02 : MonoBehaviour
       }
       else if(tile == '6') {
         Transform newTile = Instantiate(movingPipeTile,pos,Quaternion.Euler(Vector3.left*90)) as Transform;
+        Tiles.Add(newTile);
+      }
+      else if(tile == '7') {
+        Transform newTile = Instantiate(brickTileGlass,pos,Quaternion.Euler(Vector3.left*90)) as Transform;
+        Tiles.Add(newTile);
+      }
+      else if(tile == '8') {
+        Transform newTile = Instantiate(brownTileGlass,pos,Quaternion.Euler(Vector3.left*90)) as Transform;
+        Tiles.Add(newTile);
+      }
+      else if(tile == '9') {
+        Transform newTile = Instantiate(questionTileGlass,pos,Quaternion.Euler(Vector3.left*90)) as Transform;
+        Tiles.Add(newTile);
+      }
+      else if(tile == 'a') {
+        Transform newTile = Instantiate(grassTileGlass,pos,Quaternion.Euler(Vector3.left*90)) as Transform;
         Tiles.Add(newTile);
       }
     }

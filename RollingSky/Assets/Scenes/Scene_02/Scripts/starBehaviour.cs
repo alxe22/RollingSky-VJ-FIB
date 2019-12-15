@@ -18,10 +18,14 @@ public class starBehaviour : MonoBehaviour
 
     ParticleSystem ps;
 
+    public AudioClip SoundCol;
+    public AudioSource Music;
+
     void Awake()
     {
         ps = particleSystemContainer.GetComponent<ParticleSystem>();
         ps.Stop();
+        Music.clip = SoundCol;
     }
 
     void Update()
@@ -34,9 +38,11 @@ public class starBehaviour : MonoBehaviour
         if (enter)
         {
             if (!collisionParticlesActivated) {
+                Music.Play(0);
                 ps.Play();
                 defaultMat.GetComponent<MeshRenderer>().enabled = false;
                 collisionParticlesActivated = true;
+
             }
             Destroy(gameObject, 0.3f);
         }
