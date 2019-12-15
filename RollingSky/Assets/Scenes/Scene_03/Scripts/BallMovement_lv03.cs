@@ -10,7 +10,7 @@ public class BallMovement_lv03 : MonoBehaviour
     private bool isJumping = false, isFalling = false;
     private bool hasCollide = false;
     private bool ballDestroyed = false;
-    //public GameObject slicedBall1, slicedBall2, slicedBall3, slicedBall4;
+    public GameObject slicedBall1, slicedBall2, slicedBall3, slicedBall4;
     private bool GOD = false;
     //public Text GodMode;
 
@@ -39,14 +39,14 @@ public class BallMovement_lv03 : MonoBehaviour
             if (isJumping || isFalling) {
                 this.gameObject.GetComponent<Rigidbody>().useGravity = false;
                 if (isJumping && !isFalling && transform.position.y < maxJumpHeight) {
-                    transform.position = new Vector3(transform.position.x, transform.position.y + 0.15f, transform.position.z);
+                    transform.position = new Vector3(transform.position.x, transform.position.y + 20f*Time.deltaTime, transform.position.z);
                 }
                 else if (isJumping && !isFalling && transform.position.y >= maxJumpHeight) {
                     isJumping = false;
                     isFalling = true;
                 }
                 else if (!isJumping && isFalling && transform.position.y > 0.375f) {
-                    transform.position = new Vector3(transform.position.x, transform.position.y - 0.15f, transform.position.z);
+                    transform.position = new Vector3(transform.position.x, transform.position.y - 20f*Time.deltaTime, transform.position.z);
                 }
                 else if (!isJumping && isFalling && transform.position.y <= 0.375f) {
                     isJumping = false;
@@ -74,13 +74,14 @@ public class BallMovement_lv03 : MonoBehaviour
           }
       }
       else {
+          Debug.Log("has collide!");
           gameObject.GetComponent<MeshRenderer>().enabled = false;
           if (!ballDestroyed) {
               ballDestroyed = true;
-              /*slicedBall1.transform.position = transform.position;
+              slicedBall1.transform.position = transform.position;
               slicedBall2.transform.position = transform.position;
               slicedBall3.transform.position = transform.position;
-              slicedBall4.transform.position = transform.position;*/
+              slicedBall4.transform.position = transform.position;
           }
       }
     }
@@ -94,17 +95,22 @@ public class BallMovement_lv03 : MonoBehaviour
         if (other.gameObject.name == "lv03-floor-jumping-tile(Clone)") {
             if (!isJumping && !isFalling) isJumping = true;
         }
-        /*else if (other.gameObject.name == "bullet-bill") {
+        else if (other.gameObject.name == "goku-stick(Clone)") {
             obstacleCollision();
         }
-        else if (other.gameObject.name == "thwomp") {
+        else if (other.gameObject.name == "corp(Clone)") {
             obstacleCollision();
-        }*/
-        else if (other.gameObject.name == "goku-stick(Clone)") {
-            //obstacleCollision();
         }
         else {
             Debug.Log("There is any trigger collision behaivour for: " + other.gameObject.name);
+        }
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.name == "kamehameha") {
+            obstacleCollision();
+            Debug.Log("collision with" + collision.gameObject.name);
         }
     }
 

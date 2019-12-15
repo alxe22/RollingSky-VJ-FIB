@@ -5,7 +5,7 @@ using UnityEngine;
 public class dragonBehaviour : MonoBehaviour
 {
     private bool isMovingLeft = true;
-    private float speed = 0.01f;
+    private float speed = 0.003f;
     // Start is called before the first frame update
     void Start()
     {
