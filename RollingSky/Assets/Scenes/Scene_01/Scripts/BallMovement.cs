@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class BallMovement : MonoBehaviour
 {
@@ -42,6 +43,7 @@ public class BallMovement : MonoBehaviour
 
 	void Update ()
     {
+      if(Input.GetKey(KeyCode.Escape)) UnityEngine.SceneManagement.SceneManager.LoadScene("Menu", LoadSceneMode.Single);
       if(!started) {
         StartText.transform.localScale = new Vector3(1,1,1);
         transform.Rotate(Vector3.left * 1000 * Time.deltaTime);
@@ -94,7 +96,7 @@ public class BallMovement : MonoBehaviour
           finish = true;
           if(Finish.transform.localScale.x < 6) Finish.transform.localScale = new Vector3(Finish.transform.localScale.x + 0.4f, Finish.transform.localScale.y + 0.4f, Finish.transform.localScale.z);
           if(Input.GetKey("space")) {
-            Application.LoadLevel(Application.loadedLevel);
+             UnityEngine.SceneManagement.SceneManager.LoadScene("Scene_01", LoadSceneMode.Single);
           }
         }
         //fall condition
