@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class dragonBallBehaviour : MonoBehaviour
 {
-    
+
     public bool enter = true;
     public bool stay = true;
     public bool exit = true;
@@ -15,6 +15,7 @@ public class dragonBallBehaviour : MonoBehaviour
 
     private bool collisionParticlesActivated = false;
 
+    private float degreesPerSecond = -90.0f;
 
     ParticleSystem ps;
 
@@ -26,6 +27,7 @@ public class dragonBallBehaviour : MonoBehaviour
 
     void Update()
     {
+      transform.Rotate(new Vector3(0, 1, 0) * degreesPerSecond * Time.deltaTime,Space.Self);
     }
 
     private void OnTriggerEnter(Collider other)

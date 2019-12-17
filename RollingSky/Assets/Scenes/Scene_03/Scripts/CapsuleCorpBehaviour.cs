@@ -9,9 +9,7 @@ public class CapsuleCorpBehaviour : MonoBehaviour
 
     private Vector3 originPosition;
 	private Quaternion originRotation;
-	public float shake_decay = 0.002f;
-	public float shake_intensity = .3f;
-	private float temp_shake_intensity = 0;
+
 
     void Start()
     {
@@ -23,10 +21,11 @@ public class CapsuleCorpBehaviour : MonoBehaviour
         float playerPosition = playerTransform.position.z * (-1f);
         float obstaclePosition = transform.position.z * (-1f);
         originPosition = transform.position;
-		originRotation = transform.rotation;
-        if (obstaclePosition - playerPosition <= 0f) {
+		      originRotation = transform.rotation;
+        if (obstaclePosition - playerPosition <= 1f) {
             transform.rotation = originalRotation;
-            if(transform.position.y > 0.8f) transform.position = new Vector3(transform.position.x, transform.position.y-0.03f, transform.position.z);
+            if(transform.position.y > 0.8f) transform.position = new Vector3(transform.position.x, transform.position.y-0.25f, transform.position.z);
         }
+        else if (obstaclePosition - playerPosition <= 20) transform.position = new Vector3(transform.position.x, 1.5f, transform.position.z);
     }
 }

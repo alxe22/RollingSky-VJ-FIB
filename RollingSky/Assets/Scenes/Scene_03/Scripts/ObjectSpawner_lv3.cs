@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class ObjectSpawner_lv3 : MonoBehaviour
 {
-    /*public GameObject bulletBill;
-    public GameObject thwomp;
-    public GameObject bobOmb;*/
     public GameObject dragonBall;
     public GameObject stick;
     public GameObject corpCapsule;

@@ -13,8 +13,6 @@ public class bobOmbBehaivour : MonoBehaviour
 
     private bool collisionParticlesActivated = false;
 
-    private float degreesPerSecond = 90.0f;
-
     ParticleSystem ps;
 
     void Awake()

@@ -58,12 +58,12 @@ public class BallMovement : MonoBehaviour
         if(transform.position.z < -172) checkpoint = 2;
         if(transform.position.z < -251) checkpoint = 3;
         if(transform.position.z < -342) checkpoint = 4;
-        if(Input.GetKey("l") && Input.GetKey("o") && Input.GetKey("k") && Input.GetKey("i")) {
+        if(Input.GetKey("l")) {
           GOD = true;
           GodMode.transform.localScale = new Vector3(1,1,1);
           this.gameObject.GetComponent<Rigidbody>().useGravity = false;
         }
-        if(Input.GetKey("a") && Input.GetKey("s") && Input.GetKey("k")) {
+        if(Input.GetKey("g")) {
           GOD = false;
           GodMode.transform.localScale = new Vector3(0,0,1);
           this.gameObject.GetComponent<Rigidbody>().useGravity = true;
