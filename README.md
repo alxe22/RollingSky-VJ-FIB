@@ -25,7 +25,11 @@ RollingSky project is a clone of the popular game published by [Cheetah Games](h
 
 ## Gifs!
 
-
+![gif](RollingSky/media/level01.gif)
+![gif](RollingSky/media/level02.gif)
+Note that God Mode is activated, so the ball does not experience any collision whatsoever.
+![gif](RollingSky/media/level03.gif)
+Note that God Mode is activated, so the ball does not experience any collision whatsoever.
 
 ## License and some considerations:
 
