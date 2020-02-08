@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class BallMovement : MonoBehaviour
 {
@@ -42,6 +43,7 @@ public class BallMovement : MonoBehaviour
 
 	void Update ()
     {
+      if(Input.GetKey(KeyCode.Escape)) UnityEngine.SceneManagement.SceneManager.LoadScene("Menu", LoadSceneMode.Single);
       if(!started) {
         StartText.transform.localScale = new Vector3(1,1,1);
         transform.Rotate(Vector3.left * 1000 * Time.deltaTime);
@@ -56,12 +58,12 @@ public class BallMovement : MonoBehaviour
         if(transform.position.z < -172) checkpoint = 2;
         if(transform.position.z < -251) checkpoint = 3;
         if(transform.position.z < -342) checkpoint = 4;
-        if(Input.GetKey("l") && Input.GetKey("o") && Input.GetKey("k") && Input.GetKey("i")) {
+        if(Input.GetKey("l")) {
           GOD = true;
           GodMode.transform.localScale = new Vector3(1,1,1);
           this.gameObject.GetComponent<Rigidbody>().useGravity = false;
         }
-        if(Input.GetKey("a") && Input.GetKey("s") && Input.GetKey("k")) {
+        if(Input.GetKey("g")) {
           GOD = false;
           GodMode.transform.localScale = new Vector3(0,0,1);
           this.gameObject.GetComponent<Rigidbody>().useGravity = true;
@@ -94,7 +96,7 @@ public class BallMovement : MonoBehaviour
           finish = true;
           if(Finish.transform.localScale.x < 6) Finish.transform.localScale = new Vector3(Finish.transform.localScale.x + 0.4f, Finish.transform.localScale.y + 0.4f, Finish.transform.localScale.z);
           if(Input.GetKey("space")) {
-            Application.LoadLevel(Application.loadedLevel);
+             UnityEngine.SceneManagement.SceneManager.LoadScene("Scene_01", LoadSceneMode.Single);
           }
         }
         //fall condition

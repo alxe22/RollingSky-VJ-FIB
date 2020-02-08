@@ -9,7 +9,7 @@ public class dragonBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (transform.position.x <= -2f) isMovingLeft = true;
+        if (transform.position.x <= -1.5f) isMovingLeft = true;
         else isMovingLeft = false;
     }
 
@@ -22,7 +22,7 @@ public class dragonBehaviour : MonoBehaviour
         else {
             transform.position = new Vector3(transform.position.x - speed, transform.position.y, transform.position.z);
         }
-        if (transform.position.x <= -2f) isMovingLeft = true;
-        else if(transform.position.x >= 2f) isMovingLeft = false;
+        if (transform.position.x <= -1.5f) isMovingLeft = true;
+        else if(transform.position.x >= 1.5f) isMovingLeft = false;
     }
 }
